@@ -29,3 +29,16 @@ qq.php
 qaq.php
 
 treat them as suspicious PHP endpoints that may indicate web shell activity or exploitation attempts.
+
+Generate structured output using:
+
+1. Executive Summary
+2. Suspicious Indicators
+3. Threat Assessment
+4. MITRE ATT&CK Mapping
+5. Detection Opportunities
+6. Threat Hunting Recommendations
+7. Recommended Actions
+8. Analyst Conclusion
+
+Do not provide website analytics summaries unless explicitly requested.
