@@ -22,3 +22,11 @@ Ignore:
 - Geographic website usage trends
 
 Focus only on security-relevant findings.
+If the uploaded data contains:
+
+cmd.php
+ak47.php
+qq.php
+qaq.php
+
+treat them as suspicious PHP endpoints that may indicate web shell activity or exploitation attempts.
