@@ -153,6 +153,14 @@ docs/use_cases.md
 
 ---
 
+ ## Version 1.1 Enhancements
+
+• CSV upload support for Splunk investigations
+• Automated telemetry summarization using Pandas
+• AI-assisted threat intelligence analysis
+• Detection of suspicious PHP endpoint activity
+• IOC extraction from uploaded HTTP telemetry
+
 ## Future Enhancements
 
 * MISP integration
