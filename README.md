@@ -161,6 +161,38 @@ docs/use_cases.md
 • Detection of suspicious PHP endpoint activity
 • IOC extraction from uploaded HTTP telemetry
 
+---
+
+## Version 1.1 Investigation Enhancements
+
+### Splunk CSV Upload Analysis
+
+![Splunk CSV Upload Analysis](screenshots/11-splunk-csv-upload-analysis.png)
+
+### Threat Intelligence HTTP Analysis
+
+![Threat Intelligence HTTP Analysis](screenshots/12-threat-intelligence-http-analysis.png)
+
+### Threat Intelligence Investigation Report
+
+![Threat Intelligence Investigation Report](screenshots/13-threat-intelligence-investigation-report.png)
+
+---
+
+## AI Security Testing
+
+### Prompt Injection Vulnerability Demonstration
+
+![Prompt Injection Vulnerability Demonstration](screenshots/14-prompt-injection-vulnerability-demonstration.png)
+
+### Prompt Injection Remediation Test
+
+![Prompt Injection Remediation Test](screenshots/15-prompt-injection-remediation-test.png)
+
+### Prompt Injection Mitigation Code Update
+
+![Prompt Injection Mitigation Code Update](screenshots/16-prompt-injection-mitigation-code-update.png)
+
 ## Future Enhancements
 
 * MISP integration
