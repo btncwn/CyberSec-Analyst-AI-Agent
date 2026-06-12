@@ -2,9 +2,84 @@
 
 ## Overview
 
-The Personal Cyber Security Analyst AI Agent is a locally hosted AI-powered cyber security assistant designed to support defensive security operations, threat hunting, detection engineering, incident response, MITRE ATT&CK mapping, and threat intelligence workflows.
+The Personal Cyber Security Analyst AI Agent began as a locally hosted AI-powered cybersecurity assistant designed to support defensive security operations, threat hunting, detection engineering, incident response, MITRE ATT&CK mapping, and threat intelligence workflows.
 
-The application uses Streamlit for the user interface and Ollama with Llama 3.2 for local AI processing. All analysis is performed locally without requiring cloud-based AI services.
+### Version 1.0 – Local AI Cyber Security Assistant
+
+The initial version used Streamlit, Ollama, and Llama 3.2 to provide AI-assisted support for:
+
+* Incident report generation
+* Threat hunting guidance
+* Sigma rule generation
+* Splunk SPL query generation
+* MITRE ATT&CK mapping
+* Detection engineering support
+* Threat intelligence analysis
+
+Architecture:
+
+User → Streamlit → Ollama → Llama 3.2
+
+---
+
+### Version 1.1 – AI Security Improvements
+
+Following security testing, the project was enhanced to address prompt injection and AI security risks.
+
+Enhancements included:
+
+* Prompt injection testing
+* Prompt injection mitigation
+* Secure prompt handling
+* AI security documentation
+* Security validation testing
+
+Architecture:
+
+User → Security Controls → Ollama → Llama 3.2
+
+---
+
+### Version 2.0 – Secure Local SOC RAG Assistant
+
+The project evolved into a Retrieval-Augmented Generation (RAG) SOC analyst assistant using Python, ChromaDB, Ollama, Llama 3.2, and Qwen3.
+
+Key enhancements:
+
+* ChromaDB vector database
+* Local cybersecurity knowledge base
+* Document ingestion and chunking
+* Retrieval-Augmented Generation (RAG)
+* Source-attributed responses
+* Local LLM support (Llama 3.2 and Qwen3)
+* Improved investigation accuracy through knowledge retrieval
+
+Architecture:
+
+User Question
+↓
+ChromaDB Vector Search
+↓
+Cyber Security Knowledge Base
+↓
+Local LLM (Llama 3.2 / Qwen3)
+↓
+Source-Attributed Response
+
+The platform performs all processing locally without requiring cloud AI services and is designed to support security investigations while maintaining data privacy, transparency, and analyst control.
+
+Current capabilities include:
+
+* Incident Response
+* Threat Hunting
+* Detection Engineering
+* Sigma Rule Support
+* Splunk Query Assistance
+* MITRE ATT&CK Mapping
+* Threat Intelligence Analysis
+* Retrieval-Augmented Generation (RAG)
+* Source Attribution and Evidence Validation
+
 
 ---
 
