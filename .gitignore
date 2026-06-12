@@ -18,3 +18,4 @@ venv/
 # Private Investigation Data
 outputs/private/
 data/private/
+vector_db/
