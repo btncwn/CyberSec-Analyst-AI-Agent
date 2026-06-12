@@ -39,16 +39,26 @@ response = requests.post(
     }
 )
 
-print("\n===== RAW OLLAMA RESPONSE =====\n")
-print(response.status_code)
-print(response.text)
+data = response.json()
 
 print("\n===== ANSWER =====\n")
 
-data = response.json()
-
 if "response" in data:
     print(data["response"])
+
+    print("\n===== SOURCES USED =====\n")
+
+    sources = []
+
+    for metadata in results["metadatas"][0]:
+        source = metadata["source"]
+
+        if source not in sources:
+            sources.append(source)
+
+    for source in sources:
+        print(f"- {source}")
+
 else:
-    print("Ollama did not return a response field.")
+    print("Ollama Error:")
     print(data)
