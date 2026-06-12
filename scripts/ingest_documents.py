@@ -1,3 +1,4 @@
+from chunk_documents import chunk_documents
 from load_documents import load_documents
 import chromadb
 
@@ -18,15 +19,22 @@ def main():
     )
 
     documents = load_documents()
+    documents = chunk_documents(documents)
 
     if not documents:
         print("No markdown documents found.")
         return
 
     collection.add(
-        ids=[doc["source"] for doc in documents],
-        documents=[doc["content"] for doc in documents],
-        metadatas=[{"source": doc["source"]} for doc in documents]
+        ids=[doc["id"] for doc in documents],
+documents=[doc["content"] for doc in documents],
+metadatas=[
+    {
+        "source": doc["source"],
+        "chunk_index": doc["chunk_index"]
+    }
+    for doc in documents
+]
     )
 
     print(f"Ingested {len(documents)} documents into ChromaDB.")
