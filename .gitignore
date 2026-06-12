@@ -18,4 +18,9 @@ venv/
 # Private Investigation Data
 outputs/private/
 data/private/
+
+# ChromaDB
 vector_db/
+
+# Local RAG Cache
+.cache/
