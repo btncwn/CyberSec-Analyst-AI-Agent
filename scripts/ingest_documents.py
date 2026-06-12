@@ -1,42 +1,31 @@
-from pathlib import Path
+from load_documents import load_documents
 import chromadb
 
-KNOWLEDGE_BASE_DIR = Path("knowledge_base")
 CHROMA_DIR = "vector_db"
 COLLECTION_NAME = "soc_knowledge_base"
-
-
-def read_markdown_files():
-    documents = []
-
-    for file_path in KNOWLEDGE_BASE_DIR.rglob("*.md"):
-        text = file_path.read_text(encoding="utf-8")
-
-        documents.append({
-            "id": str(file_path),
-            "text": text,
-            "source": str(file_path)
-        })
-
-    return documents
 
 
 def main():
     client = chromadb.PersistentClient(path=CHROMA_DIR)
 
+    try:
+        client.delete_collection(name=COLLECTION_NAME)
+    except Exception:
+        pass
+
     collection = client.get_or_create_collection(
         name=COLLECTION_NAME
     )
 
-    documents = read_markdown_files()
+    documents = load_documents()
 
     if not documents:
-        print("No markdown documents found in knowledge_base/")
+        print("No markdown documents found.")
         return
 
     collection.add(
-        ids=[doc["id"] for doc in documents],
-        documents=[doc["text"] for doc in documents],
+        ids=[doc["source"] for doc in documents],
+        documents=[doc["content"] for doc in documents],
         metadatas=[{"source": doc["source"]} for doc in documents]
     )
 
