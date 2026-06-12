@@ -1,4 +1,4 @@
-# Personal Cyber Security Analyst AI Agent
+Secure Local SOC RAG Assistant for Incident Response, Threat Hunting, and Detection Engineering
 
 ## Overview
 
