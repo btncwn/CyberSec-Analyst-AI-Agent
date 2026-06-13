@@ -87,7 +87,7 @@ def main():
     try:
         results = collection.query(
             query_texts=[question],
-            n_results=2,
+            n_results=6,
             include=["documents", "metadatas"]
         )
 
