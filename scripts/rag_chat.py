@@ -27,7 +27,7 @@ def get_ollama_response(prompt, max_tokens=400):
                     "stop": ["\n\n\n", "Context:", "CONTEXT:"]  # Stop at natural breaks
                 }
             },
-            timeout=120
+            timeout=180
         )
         
         print(f"  [Response status: {response.status_code}]")
@@ -87,7 +87,7 @@ def main():
     try:
         results = collection.query(
             query_texts=[question],
-            n_results=3,
+            n_results=2,
             include=["documents", "metadatas"]
         )
 
