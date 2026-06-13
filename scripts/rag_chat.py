@@ -103,13 +103,20 @@ def main():
         print("❌ No relevant context found")
         sys.exit(1)
     
-    print(f"✓ Found {len(results['documents'][0])} relevant documents")
-    
+        print(f"✓ Found {len(results['documents'][0])} relevant documents")
+
     # Prepare context
+    MAX_CONTEXT_CHARS = 2500
+
     context = "\n\n---\n\n".join(results["documents"][0])
+
+    if len(context) > MAX_CONTEXT_CHARS:
+        print(f"  [Context truncated from {len(context)} to {MAX_CONTEXT_CHARS} chars]")
+        context = context[:MAX_CONTEXT_CHARS]
+
     context_size = len(context)
     print(f"  Context size: {context_size} characters")
-    
+
     # Adjust max_tokens based on context size
     max_tokens = 400  # Default
     if context_size < 500:
