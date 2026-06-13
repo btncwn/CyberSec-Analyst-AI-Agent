@@ -69,7 +69,6 @@ def main():
     except:
         print("❌ Cannot connect to Ollama. Make sure it's running.")
         sys.exit(1)
-    
     # Connect to database
     try:
         client = chromadb.PersistentClient(path=CHROMA_DIR)
@@ -78,13 +77,11 @@ def main():
     except Exception as e:
         print(f"❌ Database error: {e}")
         sys.exit(1)
-    
     # Get question
     question = input("\nQuestion: ").strip()
     if not question:
         print("No question provided")
         sys.exit(1)
-    
     # Search knowledge base
     print("\n🔍 Searching knowledge base...")
     try:
@@ -93,6 +90,11 @@ def main():
             n_results=3,
             include=["documents", "metadatas"]
         )
+
+        print("\nRetrieved documents:")
+        for meta in results["metadatas"][0]:
+            print(meta.get("source"))
+
     except Exception as e:
         print(f"❌ Search error: {e}")
         sys.exit(1)
