@@ -107,8 +107,19 @@ def main():
 
     # Prepare context
     MAX_CONTEXT_CHARS = 2500
+    # Deduplicate retrieved chunks by source
+    unique_documents = []
+    unique_metadatas = []
+    seen_sources = set()
 
-    context = "\n\n---\n\n".join(results["documents"][0])
+    for document, metadata in zip(results["documents"][0], results["metadatas"][0]):
+        source = metadata.get("source", "Unknown")
+
+        if source not in seen_sources:
+            unique_documents.append(document)
+            unique_metadatas.append(metadata)
+            seen_sources.add(source)
+    context = "\n\n---\n\n".join(unique_documents)
 
     if len(context) > MAX_CONTEXT_CHARS:
         print(f"  [Context truncated from {len(context)} to {MAX_CONTEXT_CHARS} chars]")
@@ -157,7 +168,7 @@ ANSWER:"""
     # Show sources
     print("\n📚 SOURCES:\n")
     seen = set()
-    for meta in results["metadatas"][0]:
+    for meta in unique_metadatas:
         source = meta.get('source', 'Unknown')
         if source not in seen:
             print(f"  • {source}")
