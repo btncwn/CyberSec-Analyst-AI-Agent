@@ -135,14 +135,28 @@ def main():
     elif context_size > 2000:
         max_tokens = 600  # Larger context might need more tokens
     
-    prompt = f"""Answer based ONLY on this context. Be direct and concise:
+    prompt = f"""
+You are a cybersecurity SOC analyst.
+
+Answer the user's question using ONLY the provided context.
+
+Rules:
+- Give a direct answer.
+- Use bullet points when helpful.
+- Do not explain your reasoning.
+- Do not mention the context.
+- Do not mention being an AI.
+- If the answer is not available in the context, respond:
+  "I cannot answer based on the available knowledge."
 
 CONTEXT:
 {context}
 
-QUESTION: {question}
+QUESTION:
+{question}
 
-ANSWER:"""
+ANSWER:
+"""
     
     print("\n🤔 Generating answer...\n")
     print("="*50)
